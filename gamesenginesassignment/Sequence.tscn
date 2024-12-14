@@ -61,6 +61,7 @@ shape = SubResource("CapsuleShape3D_xqjkm")
 
 [node name="sequencer" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2.33003, -4.7914)
+visible = false
 script = ExtResource("1_66d3e")
 pad_scene = ExtResource("4_m3c2h")
 

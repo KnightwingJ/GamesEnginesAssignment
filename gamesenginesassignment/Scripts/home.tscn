@@ -23,6 +23,9 @@ text = "Home"
 layout_mode = 0
 offset_right = 49.0
 offset_bottom = 92.0
+min_value = -30.0
+max_value = 30.0
+step = 0.5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Volume"]
 layout_mode = 0
@@ -32,25 +35,16 @@ offset_right = 68.0
 offset_bottom = 113.0
 text = "Volume"
 
-[node name="BPM" type="VSlider" parent="."]
-layout_mode = 0
-offset_left = 80.0
-offset_right = 129.0
-offset_bottom = 92.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="BPM"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 91.0
-offset_right = 43.0
-offset_bottom = 114.0
-text = "BPM"
-
 [node name="Pitch" type="VSlider" parent="."]
 layout_mode = 0
-offset_left = 148.0
-offset_right = 197.0
-offset_bottom = 92.0
+offset_left = 80.0
+offset_top = -1.0
+offset_right = 129.0
+offset_bottom = 91.0
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 1.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pitch"]
 layout_mode = 0
@@ -63,5 +57,4 @@ text = "Pitch
 
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
 [connection signal="value_changed" from="Volume" to="." method="_on_volume_value_changed"]
-[connection signal="value_changed" from="BPM" to="." method="_on_bpm_value_changed"]
 [connection signal="value_changed" from="Pitch" to="." method="_on_pitch_value_changed"]

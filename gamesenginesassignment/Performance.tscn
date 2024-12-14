@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2e85w5l4uj5k"]
+[gd_scene load_steps=15 format=3 uid="uid://b2e85w5l4uj5k"]
 
 [ext_resource type="Texture2D" uid="uid://deyl25pb83ux4" path="res://Textures/ESO_-_Milky_Way.jpg" id="2_i21tf"]
 [ext_resource type="Script" path="res://animation_player.gd" id="3_u4brh"]
 [ext_resource type="PackedScene" uid="uid://b3rj6qp3jwoau" path="res://Animations/Guitar Playing.fbx" id="3_uqjk2"]
 [ext_resource type="Script" path="res://audio_sequence.gd" id="3_we0ri"]
 [ext_resource type="PackedScene" uid="uid://uy5g8tn4x5im" path="res://Scripts/home.tscn" id="4_tfkw2"]
+[ext_resource type="Script" path="res://movement.gd" id="6_j38r8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_c3knc"]
 panorama = ExtResource("2_i21tf")
@@ -28,11 +29,11 @@ size = Vector2(60, 60)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kqakl"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ek34q"]
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("3_we0ri")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.248602, 1.15934, 3.76269)
+menu_path = NodePath("CanvasLayer/Control")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gnrwb")
@@ -121,5 +122,14 @@ bones/63/rotation = Quaternion(0.346813, 2.97935e-08, -1.19444e-07, 0.937934)
 
 [node name="AnimationPlayer" parent="Guitar Playing" index="1"]
 script = ExtResource("3_u4brh")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00474, 4.36949)
+script = ExtResource("6_j38r8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_ek34q")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
 
 [editable path="Guitar Playing"]
