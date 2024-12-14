@@ -1,0 +1,69 @@
+[gd_scene load_steps=13 format=3 uid="uid://775vg2cgcajx"]
+
+[ext_resource type="Script" path="res://sequence.gd" id="1_66d3e"]
+[ext_resource type="Script" path="res://root.gd" id="1_esrco"]
+[ext_resource type="Texture2D" uid="uid://deyl25pb83ux4" path="res://Textures/ESO_-_Milky_Way.jpg" id="2_5cglb"]
+[ext_resource type="PackedScene" uid="uid://chyqai0ttbchl" path="res://Scripts/control.tscn" id="3_qlgpf"]
+[ext_resource type="PackedScene" uid="uid://2xn0851y6k62" path="res://button.tscn" id="4_m3c2h"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_odpix"]
+panorama = ExtResource("2_5cglb")
+
+[sub_resource type="Sky" id="Sky_amrsm"]
+sky_material = SubResource("PanoramaSkyMaterial_odpix")
+
+[sub_resource type="Environment" id="Environment_i7jv6"]
+background_mode = 2
+sky = SubResource("Sky_amrsm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qatb3"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp04n"]
+albedo_color = Color(0.72549, 0.4, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mwlgp"]
+material = SubResource("StandardMaterial3D_yp04n")
+size = Vector2(60, 60)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqjkm"]
+
+[node name="root" type="Node3D"]
+script = ExtResource("1_esrco")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i7jv6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6366, 9.67999, 1.40093)
+light_energy = 4.388
+omni_range = 22.313
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("3_qlgpf")]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.729485, 0)
+shape = SubResource("BoxShape3D_qatb3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/CollisionShape3D"]
+mesh = SubResource("PlaneMesh_mwlgp")
+skeleton = NodePath("../..")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.1404, 9.78396, 1.38366)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_xqjkm")
+
+[node name="sequencer" type="Marker3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2.33003, -4.7914)
+script = ExtResource("1_66d3e")
+pad_scene = ExtResource("4_m3c2h")
+
+[node name="Timer" type="Timer" parent="sequencer"]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://chyqai0ttbchl"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_hd5mu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hd5mu")
+
+[node name="Perform" type="Button" parent="."]
+layout_mode = 0
+offset_top = 213.0
+offset_right = 72.0
+offset_bottom = 244.0
+action_mode = 0
+text = "Perform"
+
+[node name="E Chord" type="Button" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 69.0
+offset_bottom = 33.0
+text = "E Chord
+"
+
+[node name="A Chord" type="Button" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 43.0
+offset_right = 69.0
+offset_bottom = 74.0
+text = "A Chord
+"
+
+[node name="D Chord" type="Button" parent="."]
+layout_mode = 0
+offset_top = 85.0
+offset_right = 71.0
+offset_bottom = 116.0
+text = "D Chord
+"
+
+[node name="G Chord" type="Button" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 128.0
+offset_right = 70.0
+offset_bottom = 159.0
+text = "G Chord
+"
+
+[node name="C Chord" type="Button" parent="."]
+layout_mode = 0
+offset_top = 166.0
+offset_right = 68.0
+offset_bottom = 197.0
+text = "C Chord"
+
+[node name="Reset" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 259.0
+offset_right = 52.0
+offset_bottom = 290.0
+text = "Reset"
+
+[connection signal="pressed" from="Perform" to="." method="_on_perform_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
