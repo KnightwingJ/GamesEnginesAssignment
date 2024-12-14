@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://775vg2cgcajx"]
+[gd_scene load_steps=12 format=3 uid="uid://crpbt6dx074yl"]
 
 [ext_resource type="Script" path="res://sequence.gd" id="1_66d3e"]
-[ext_resource type="Script" path="res://root.gd" id="1_esrco"]
 [ext_resource type="Texture2D" uid="uid://deyl25pb83ux4" path="res://Textures/ESO_-_Milky_Way.jpg" id="2_5cglb"]
 [ext_resource type="PackedScene" uid="uid://chyqai0ttbchl" path="res://Scripts/control.tscn" id="3_qlgpf"]
-[ext_resource type="PackedScene" uid="uid://2xn0851y6k62" path="res://button.tscn" id="4_m3c2h"]
+[ext_resource type="PackedScene" path="res://button.tscn" id="4_m3c2h"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_odpix"]
 panorama = ExtResource("2_5cglb")
@@ -29,7 +28,6 @@ size = Vector2(60, 60)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqjkm"]
 
 [node name="root" type="Node3D"]
-script = ExtResource("1_esrco")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i7jv6")

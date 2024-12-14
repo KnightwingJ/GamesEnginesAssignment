@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddh1syyottwfg"]
+[gd_scene load_steps=13 format=3 uid="uid://b2e85w5l4uj5k"]
 
 [ext_resource type="Texture2D" uid="uid://deyl25pb83ux4" path="res://Textures/ESO_-_Milky_Way.jpg" id="2_i21tf"]
 [ext_resource type="Script" path="res://animation_player.gd" id="3_u4brh"]

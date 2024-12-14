@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://uy5g8tn4x5im"]
+
+[ext_resource type="Script" path="res://Home.gd" id="1_wudhg"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wudhg")
+
+[node name="Home" type="Button" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 124.0
+offset_right = 54.0
+offset_bottom = 155.0
+text = "Home"
+
+[node name="Volume" type="VSlider" parent="."]
+layout_mode = 0
+offset_right = 49.0
+offset_bottom = 92.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Volume"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 90.0
+offset_right = 68.0
+offset_bottom = 113.0
+text = "Volume"
+
+[node name="BPM" type="VSlider" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_right = 129.0
+offset_bottom = 92.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BPM"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 91.0
+offset_right = 43.0
+offset_bottom = 114.0
+text = "BPM"
+
+[node name="Pitch" type="VSlider" parent="."]
+layout_mode = 0
+offset_left = 148.0
+offset_right = 197.0
+offset_bottom = 92.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pitch"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 92.0
+offset_right = 44.0
+offset_bottom = 117.0
+text = "Pitch
+"
+
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="value_changed" from="Volume" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="BPM" to="." method="_on_bpm_value_changed"]
+[connection signal="value_changed" from="Pitch" to="." method="_on_pitch_value_changed"]
