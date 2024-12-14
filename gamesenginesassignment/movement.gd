@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var move_speed: float = 5.0  # Player movement speed
-@export var look_sensitivity: float = 0.2  # Camera rotation sensitivity
+@export var look_sensitivity: float = 0.4  # Camera rotation sensitivity
 
 var camera_rotation: Vector2 = Vector2.ZERO  # Camera rotation (yaw, pitch)
 var camera: Camera3D  # Reference to the camera node
